@@ -8,6 +8,15 @@ namespace expression_members
         static void Main(string[] args)
         {
             Console.WriteLine("Hello Bugs!");
+            Bug newBug1 = new Bug("Andy", "ant", new List<string> (){"bird", "morebird", "bigbird"}, new List<string>() {"picnics", "food", "sweets"});
+            Bug newBug2 = new Bug("Mandy", "mantis", new List<string> (){"bird", "morebird", "mantis"}, new List<string>() {"ant", "mantis", "sweets"});
+            
+            foreach (string each in newBug1.Prey) {
+                Console.WriteLine(each);
+            }
+
+            Console.WriteLine(newBug2.Eat("ant"));
+            Console.WriteLine(newBug2.Eat("bird"));
         }
     }
 
@@ -71,7 +80,9 @@ namespace expression_members
         //     }
         // }
 
-        public string Eat(string food) => this.Prey.Contains(food) ? $"{this.Name} ate the {food}." : $"{this.Name} is still hungry.";
+        // public string Eat(string food) => this.Prey.Contains(food) ? $"{this.Name} ate the {food}." : $"{this.Name} is still hungry.";
+        public string Eat(string food) => Prey.Contains(food) ? $"{Name} ate the {food}." : $"{Name} is still hungry.";
+
 
     }
 
