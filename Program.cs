@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace expression_members
 {
@@ -6,7 +7,7 @@ namespace expression_members
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello Bugs!");
         }
     }
 
@@ -42,29 +43,36 @@ namespace expression_members
         }
 
         // Convert this method to an expression member
-        public string PreyList()
-        {
-            var commaDelimitedPrey = string.Join(",", this.Prey);
-            return commaDelimitedPrey;
-        }
+        // public string PreyList()
+        // {
+        //     var commaDelimitedPrey = string.Join(",", this.Prey);
+        //     return commaDelimitedPrey;
+        // }
+
+        public string PreyList => String.Join(",", this.Prey);
 
         // Convert this method to an expression member
-        public string PredatorList()
-        {
-            var commaDelimitedPredators = string.Join(",", this.Predators);
-            return commaDelimitedPredators;
-        }
+        // public string PredatorList()
+        // {
+        //     var commaDelimitedPredators = string.Join(",", this.Predators);
+        //     return commaDelimitedPredators;
+        // }
+
+        public string PredatorList => String.Join(",", this.Predators);
 
         // Convert this to expression method (hint: use a C# ternary)
-        public string Eat(string food)
-        {
-            if (this.Prey.Contains(food))
-            {
-                return $"{this.Name} ate the {food}.";
-            } else {
-                return $"{this.Name} is still hungry.";
-            }
-        }
+        // public string Eat(string food)
+        // {
+        //     if (this.Prey.Contains(food))
+        //     {
+        //         return $"{this.Name} ate the {food}.";
+        //     } else {
+        //         return $"{this.Name} is still hungry.";
+        //     }
+        // }
+
+        public string Eat(string food) => this.Prey.Contains(food) ? $"{this.Name} ate the {food}." : $"{this.Name} is still hungry.";
+
     }
 
 
